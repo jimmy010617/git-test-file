@@ -33,3 +33,10 @@
 
 - Node.js 버전 8.2.0 이상 설치 시 npm과 npx는 자동으로 설치 된다.
 - 그 외 코드에디터, 웹 브라우저만 설정하면 끝
+
+### React 설치 및 실행
+
+```
+npx create-react-app <프로젝트 이름>
+npm start
+```
