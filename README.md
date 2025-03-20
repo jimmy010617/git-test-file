@@ -158,6 +158,8 @@
     }
     ```
 
+    ![](/react-test-app/image/rp7.png)
+
 - React 사용시 component라고 하는 개별 조각으로 사용자 인터페이스 구축가능
 - component의 이름은 파일 이름과 동일하게 하며, 영문 대문자로 시작함
 - React는 개인, 팀, 조직에서 작성한 component를 원활하게 결합할 수 있도록 설계됨
@@ -188,9 +190,75 @@
   }
   ```
 
+  ![](/react-test-app/image/rp8.png)
+
 - React에서 사용되는 마크업을 JSX라고 함
 - JSX는 React를 통해 대중화된 JavaScript 확장 문법
 - JSX 마크업을 관련된 렌더링 로직과 가까이 두면, component를 쉽게 생성, 관리, 삭제 할 수 있음
+
+### 필요한 곳에 상호작용 기능 추가
+
+- React component는 데이터를 수신하고, 화면에 표시해야 하는 내용을 반환
+- 사용자의 입력을 받아 새로운 데이터를 component에 전달할 수 있음
+- 이때 React는 상호작용을 통해 얻은 새 데이터로 화면을 업데이트
+- 예제 SearchableVideoList.js
+
+  ```javascript
+  import { useState } from "react";
+
+  function SearchableVideoList({ videos }) {
+    const [searchText, setSearchText] = useState("");
+    const foundVideos = filterVideos(videos, searchText);
+    return (
+      <>
+        <SearchInput
+          value={searchText}
+          onChange={(newText) => setSearchText(newText)}
+        />
+        <VideoList
+          videos={foundVideos}
+          emptyHeading={`No matches for “${searchText}”`}
+        />
+      </>
+    );
+  }
+  ```
+
+  ![](/react-test-app/image/rp9.png)
+
+### Full-Stack-App 개발을 도와주는 React Framework
+
+- React는 라우팅이나 데이터를 가져오는 방법을 규정하지 않음
+- React로 완전한 앱을 만들기 위해서는 Next.js, Remix같은 풀스택 React 프레임워크를 준비해야 함
+- 예제 confs/[slug].js
+
+  ```javascript
+  import { db } from "./database.js";
+  import { Suspense } from "react";
+
+  async function ConferencePage({ slug }) {
+    const conf = await db.Confs.find({ slug });
+    return (
+      <ConferenceLayout conf={conf}>
+        <Suspense fallback={<TalksLoading />}>
+          <Talks confId={conf.id} />
+        </Suspense>
+      </ConferenceLayout>
+    );
+  }
+
+  async function Talks({ confId }) {
+    const talks = await db.Talks.findAll({ confId });
+    const videos = talks.map((talk) => talk.video);
+    return <SearchableVideoList videos={videos} />;
+  }
+  ```
+
+  ![](/react-test-app/image/rp10.png)
+
+- React는 아키텍쳐이기도 함
+- 이를 구현하는 프레임워크는 서버에서 실행되거나 비동기 component에서 데이터를 가지고 올 수 있도록 함
+- 파일이나 데이터베이스에서 데이터를 읽고, 이를 상호작용하는 component에 전달할 수 있음
 
 ## 2025-03-13
 
