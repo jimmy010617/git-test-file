@@ -139,9 +139,58 @@
 
 ### Component를 사용한 유저 인터페이스 생성
 
+- 사용자 인터페이스 구축
+
+  - 예제 Video.js
+
+    ```javascript
+    function Video({ video }) {
+      return (
+        <div>
+          <Thumbnail video={video} />
+          <a href={video.url}>
+            <h3>{video.title}</h3>
+            <p>{video.description}</p>
+          </a>
+          <LikeButton video={video} />
+        </div>
+      );
+    }
+    ```
+
 - React 사용시 component라고 하는 개별 조각으로 사용자 인터페이스 구축가능
 - component의 이름은 파일 이름과 동일하게 하며, 영문 대문자로 시작함
 - React는 개인, 팀, 조직에서 작성한 component를 원활하게 결합할 수 있도록 설계됨
+
+### Component를 작성하는 JavaScript와 Markup
+
+- React component는 JavaScript 함수다
+- 조건에 따라 화면을 다르게 표시하고 싶다면 if문을 사용
+- 목록을 표시하고 싶다면 map()함수를 이용하면 됨
+- 예제 VideoList.js
+
+  ```javascript
+  function VideoList({ videos, emptyHeading }) {
+    const count = videos.length;
+    let heading = emptyHeading;
+    if (count > 0) {
+      const noun = count > 1 ? "Videos" : "Video";
+      heading = count + " " + noun;
+    }
+    return (
+      <section>
+        <h2>{heading}</h2>
+        {videos.map((video) => (
+          <Video key={video.id} video={video} />
+        ))}
+      </section>
+    );
+  }
+  ```
+
+- React에서 사용되는 마크업을 JSX라고 함
+- JSX는 React를 통해 대중화된 JavaScript 확장 문법
+- JSX 마크업을 관련된 렌더링 로직과 가까이 두면, component를 쉽게 생성, 관리, 삭제 할 수 있음
 
 ## 2025-03-13
 
