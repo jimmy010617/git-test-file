@@ -101,21 +101,22 @@
 - clone을 받은 프로젝트의 경우
 
   - 다음 명령을 실행하면 package.json과 package-lock.json을 참고하여 패키지를 다시 설치
+
+    - ![](/react-test-app/image/rp6.png)
+
   - node_module 디렉토리는 자동으로 생성됨
   - 설치가 끝나면 프로젝트를 다시 실행
 
-```
-npm install
-```
-
 - 프로젝트에 오류나 의존성 등의 문제가 생겼을 경우
-  ![](/react-test-app/image/rp4.png)
+
+  - ![](/react-test-app/image/rp4.png)
 
 - npm 패키지의 임시 저장소인 캐시를 초기화
-  ![](/react-test-app/image/rp5.png)
+
+  - ![](/react-test-app/image/rp5.png)
 
 - 패키지를 재설치
-  ![](/react-test-app/image/rp6.png)
+  - ![](/react-test-app/image/rp6.png)
 
 ### package-lock.json을 삭제하는 이유
 
