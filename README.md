@@ -36,6 +36,76 @@
   - 하나의 파일안에서 하나의 component만 내보내는 경우 사용
   - component를 사용하는 쪽에서는 어떤 이름을 사용해도 상관 없음
 
+- component 분리
+  - 반드시 import를 사용하여 로드할 것
+
+## JSX로 마크업 작성하기
+
+```javascript
+  function AboutPage() {
+    return (
+      <>
+        <h1>About</h1>
+        <p>Hello there.<br />How do you do?</p>
+      </>
+    );
+  }
+```
+
+- 반드시 사용해야 하는 것은 아니지만, React 프로젝트에서는 편의성을 위해 사용
+- HTML보다 더욱 엄격한 문법을 적용
+- <br />같이 싱글 태그라도 태그를 닫아야 함
+- React에서는 여러개의 component를 JSX태그로 반환이 가능
+  - 다만 여러개의 component를 div태그 또는 빈 <>...</> wrapping해 줘야 한다.
+
+## 스타일 추가하기
+
+- React에서는 className으로 CSS 클래스를 지정
+- className은 HTML의 class속성과 동일한 방식으로 동작
+- CSS 규칙은 별도의 CSS파일에 작성
+  - 단, React는 CSS파일을 추가하는 방법을 규정하지는 않음
+
+- 가장 간단한 방법은 HTML에 <link> 태그를 추가하는 것
+  - link 추가 시 정적 페이지 수정이 필요하므로 권장하지 않음
+- 빌드 도구나 프레임워크 사용 시 프로젝트에 css 파일을 추가
+
+## 데이터 표시하기
+
+- JSX를 사용하면 자바스크립트에 마크업을 넣을 수 있다 -> 반대다
+- JSX 코드 내에서 자바스크립트로 "탈출" 하여 변수나 표현식을 사용하는 것
+  - 이 방법은 "Escape Back" 이라고 함
+
+- {} 중괄호를 사용하여 변수나 표현식을 사용자에게 표시하도록 하는 것
+![](/react-test-app/image/rp13.png)
+
+- 예제 Profile.js
+```javascript
+  const user = {
+    name: 'Hedy Lamarr',
+    imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
+    imageSize: 90,
+  };
+
+  export default function Profile() {
+    return (
+      <>
+        <h1>{user.name}</h1>
+        <img
+          className="avatar"
+          src={user.imageUrl}
+          alt={'Photo of ' + user.name}
+          style={{
+            width: user.imageSize,
+            height: user.imageSize
+          }}
+        />
+      </>
+    );
+  }
+```
+
+
+
 
 ## 2025-03-20
 

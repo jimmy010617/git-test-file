@@ -1,0 +1,9 @@
+* {
+  text-align: center;
+  background: #000;
+  color: white;
+}
+
+.avatar {
+  border-radius: 50%;
+}
