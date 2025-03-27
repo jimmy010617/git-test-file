@@ -1,5 +1,19 @@
 # 202030235 차민욱
 
+## 2025-03-27
+
+### React Component의 생성 및 nesting(중첩)
+
+- React앱은 component로 만들어짐
+
+  - component는 고유한 로직과 모양을 가진 UI의 일부
+  - component는 버튼처럼 작을 수도 있고, 전체 페이지 처럼 클 수도 있음
+  - component는 마크업을 반환하는 javascript 함수이다.
+
+- nesting은 CSS 선택자의 중첩 구조를 생각하면 쉽게 이해가능.
+  - CSS중첩 구조는 2023년부터 자체 지원, 이전에는 Sass, Lass등을 이용할 때 사용
+    ![](/react-test-app/image/rp11.png)
+
 ## 2025-03-20
 
 ### React Project의 구조 및 역할
