@@ -14,6 +14,29 @@
   - CSS중첩 구조는 2023년부터 자체 지원, 이전에는 Sass, Lass등을 이용할 때 사용
     ![](/react-test-app/image/rp11.png)
 
+## export default 선언의 가장 좋은 위치는?
+
+- vscode에서 자동완성 사용 시 맨 아래에 선언이 됨
+- 공식처럼 main component의 function 키워드 왼쪽에 선언하는 것을 권장
+- 특히 한 파일에 여러개의 component가 있다면 이렇게 하는 것이 가독성에 좋음
+
+- 예제 app.js
+
+  ![](/react-test-app/image/rp12.png)
+
+- export default 키워드는 파일내의 component중 기본 component를 지정
+
+## export default와 export의 차이
+
+- Named Exports (export)
+  - 하나의 파일안에 여러 개의 component가 있을 때 사용
+  - component를 사용하는 쪽에서는 component의 정확한 이름을 반드시 명시해야 함
+
+- Default Exports (export default)
+  - 하나의 파일안에서 하나의 component만 내보내는 경우 사용
+  - component를 사용하는 쪽에서는 어떤 이름을 사용해도 상관 없음
+
+
 ## 2025-03-20
 
 ### React Project의 구조 및 역할
