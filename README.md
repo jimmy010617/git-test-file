@@ -10,6 +10,7 @@
 - React는 사용자가 버튼을 클릭할 때 이벤트 핸들러를 호출
 
 - 실습 코드
+
   ```javascript
   function MyButton() {
     function handleClick() {
@@ -18,10 +19,39 @@
 
     return (
       <button onClick={handleCilck}>
-        I'm a button
+        "I'm a button"
       </button>
     );
   }
+  ```
+
+## 화면 업데이트하기
+- component가 특정 정보를 '기억' 해두었다가 표시하기를 원하는 경우가 있음
+- 이럴때는 component에 state를 추가하면 됨
+
+  ```javascript
+    import { useState } from 'react';
+  ```
+
+- useState로부터 현재의 state를 저장할 수 있는 변수인 count와 이를 업데이트할 수 있는 함수인 setCount를 얻을 수 잇음
+- 이름은 자유롭게 지정가능하나 [somthing, setSomething]으로 작성하는 것이 일반적
+- 변수 이름과 변수 이름 앞에 set을 붙인 업데이트 함수를 관용적으로 사용
+- 실습 코드
+
+  ```javascript
+    function Button() {
+      const [count, setCount] = useState(0);
+
+      function handleClick() {
+        setCount(count + 1);
+      }
+
+      return (
+        <button onClick={handleCilck}>
+          Clicked {count} times
+        </button>
+      );
+    }
   ```
 
 ## 2025-03-27
