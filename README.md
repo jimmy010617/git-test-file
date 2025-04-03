@@ -55,6 +55,51 @@
     }
   ```
 
+## Hook 사용하기
+
+- use로 시작하는 함수를 Hook이라고 함
+- useState는 React에서 제공하는 내장 Hook이다.
+- 기존의 것들을 조합하여 자신만의 Hook울 작성할 수도 잇음
+- 다른 함수보다 더 제한적임
+- component 또는 다른 Hook의 상단에서만 호출할 수 있음
+- 조건이나 반복문에서 useState를 사용하고 싶다면 새 컴포넌트를 추출해서 그곳에 넣을 것
+
+### Hook의 사용규칙
+
+- Hook은 React의 렌더링 및 상태 관리 메커니즘과 밀접하게 연결되어 있으며, 아래와 같은 규칙을 따른다.
+
+- 최상위에서만 호출해야 한다
+  - if, for, while 등의 블록 내부에서 Hooks를 호출하면 안된다.
+  - 함수의 조건문 내부에서 호출하면 실행순서가 달라지기 때문
+
+- React 함수형 component 또는 사용자 Hook 내부에서만 사용 가능
+  - 일반적인 JavaScript 함수에서 useState, useEffect 등의 Hook을 사용할 수 없음.
+
+### 왜 이런 제한이 필요한가?
+
+- React의 동작을 에측 가능하고, 안정성을 높이기 위해 필요
+
+- 렌더링 순서를 보장하기 위해
+  - 조건문이나 반복문 안에서 Hooks를 사용하면 매 렌더링마다 Hooks의 호출 순서가 달라질 수 있기 때문에 React가 상태를 제대로 추적할 수 없음
+
+- 불필요한 사이드 이펙트 방지
+  - component가 여러 번 렌더링될 때마다 동일한 순서로 Hook이 실행되어야 React가 의도한 동작을 수행할 수 있음
+
+### 왜 function형 컴포넌트에서만 Hook을 사용할까?
+
+- class형 컴포넌트는 lifecycle 함수를 통해서 상태 관리를 함
+- 이러한 이율 class형 컴포넌트는 유지보수가 어렵고 복잡해질 수 있음
+- React는 컴포넌트의 상태관리와 로직을 더 간결하게 만들기 위해 Hooks를 도입
+- 따라서 React는 function형 컴포넌트를 권장
+- Hook은 function형 컴포넌트 전용으로 설게됨
+
+## component간 데이터 공유
+
+- 각 component 객체는 독립적으로 동작한다.
+- component는 하나지만 count 변수도 객체로 여러 개 복사된 것이나 마찬가지다.
+- component는 외부에서 두 개 호출하는 것이 아닌 내부에서 닽은 count 변수를 사용한다.
+
+
 ## 2025-03-27
 
 ### React Component의 생성 및 nesting(중첩)
