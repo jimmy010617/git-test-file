@@ -6,7 +6,6 @@ import ShoppingList from './component/ShoppingList';
 import './App.css';
 import CountState from './component/CountState';
 import { useState } from 'react';
-// import TTT from './tic-tac-toe/game'
 
 function CountState2({ count, onClick }) {
   return (
