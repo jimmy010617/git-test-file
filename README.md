@@ -36,6 +36,7 @@
 - useState로부터 현재의 state를 저장할 수 있는 변수인 count와 이를 업데이트할 수 있는 함수인 setCount를 얻을 수 잇음
 - 이름은 자유롭게 지정가능하나 [somthing, setSomething]으로 작성하는 것이 일반적
 - 변수 이름과 변수 이름 앞에 set을 붙인 업데이트 함수를 관용적으로 사용
+
 - 실습 코드
 
   ```javascript

@@ -6,4 +6,20 @@
 
 .wrapper {
   border-radius: 50%;
+  width: 25%;
+  margin: auto;
+  text-align: center;
+}
+
+.wrapper > div {
+  width: 50%;
+  float: left;
+}
+
+.statebtn {
+  align-items: center;
+}
+
+.App {
+  text-align: center;
 }

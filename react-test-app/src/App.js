@@ -4,6 +4,7 @@ import AP from './component/AboutPage';
 import Profile from './component/Profile';
 import ShoppingList from './component/ShoppingList';
 import './App.css';
+import CountState from './component/CountState';
 
 export default function App() {
   return (
@@ -15,6 +16,9 @@ export default function App() {
       <AP />
       <Profile />
       <ShoppingList />
+      <CountState />
+      <CountState />
+      <CountState /> 
     </div>
   )
 }
