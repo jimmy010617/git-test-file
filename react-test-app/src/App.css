@@ -11,6 +11,10 @@
   text-align: center;
 }
 
+.p {
+  text-align: center;
+}
+
 .wrapper > div {
   width: 50%;
   float: left;
