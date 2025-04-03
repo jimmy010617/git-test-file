@@ -9,16 +9,23 @@ import CountState from './component/CountState';
 export default function App() {
   return (
     <div className="wrapper">
-      <h1>Hello World!</h1>
-      <MyB /><br />
-      <Button1 />&nbsp;
-      <Button3 />
-      <AP />
-      <Profile />
-      <ShoppingList />
-      <CountState />
-      <CountState />
-      <CountState /> 
+      <div>
+
+      <h1>Hello React!</h1>
+        <MyB /><br />
+        <Button1 />&nbsp;
+        <Button3 />
+        <AP />
+        <Profile />
+        <ShoppingList />
+      </div>
+      <div>
+        
+      <h1>Hello State!</h1>
+        <CountState />
+        <CountState />
+        <CountState /> 
+      </div>
     </div>
   )
 }
