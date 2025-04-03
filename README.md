@@ -1,5 +1,29 @@
 # 202030235 차민욱
 
+## 2025-04-03
+
+## 이벤트에 응답하기
+
+- component 내부에 event handler 함수를 선언하면 event에 응답할 수 있음
+- onClick={handleClick}의 끝에 소괄호()가 없는 것을 주목
+- 함수를 호출하지 않고 전달만 하면 끝
+- React는 사용자가 버튼을 클릭할 때 이벤트 핸들러를 호출
+
+- 실습 코드
+  ```javascript
+  function MyButton() {
+    function handleClick() {
+      alert("You clicked me!");
+    }
+
+    return (
+      <button onClick={handleCilck}>
+        I'm a button
+      </button>
+    );
+  }
+  ```
+
 ## 2025-03-27
 
 ### React Component의 생성 및 nesting(중첩)
