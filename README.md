@@ -2,7 +2,33 @@
 
 ## 2025-04-17
 
+## state 끌어올리기
 
+- handelClick 함수는 자바스크립트의 silce() 배열 메소드를 사용하여 squres 배열의 사본인 nextSquares를 생성함
+- 자바 스크립트는 클로저를 지원하기 때문에 내부 함수(handleClick)가 외부 함수(Board)에 정의된 변수 및 함수에 접근할 수 있음
+- handleClick 함수는 squares의 state를 읽고 setSquares 메서드를 호출할 수 있는데, 이 두 함수는 Board 내부에 정의되어 있기 때문임
+- Square의 onSquareClick prop를 아래와 같이 jsx에서 직접 handleClick(0)으로 설정할 수 있지만, 이 방법은 작동하지 않음
+  ```javascript
+  <Square value={squares[0]} onSquareClick={handleClick[0]} />
+  ```
+- handleClick(0) 호출은 Board 컴포넌트 렌더링의 일부가 되므로 setSquare를 호출하여  Board 컴포넌트의 state를 변경하기 때문에 컴포넌트 전페를 다시 렌더링하게 함, 이로인해 handleClick(0)은 다시 실행이 되면서 무한루프에 빠지게 됨
+
+- 화살표 함수는 함수를 짧게 정의하는 방법이다.
+  ```javascript
+  export default funtion Board() {
+    // ...
+    return (
+      <>
+      <div className="board-row">
+        <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
+      // ...
+    );
+  }
+  ```
+- 이제 Board가 모든 state를 관리하므로 부모 Board 컴포넌트는 자식 Square 컴포넌트가 올바르게 표시될 수 있도록 props를 전달
+- Square를 클릭하면 자식 Square 컴포넌트가 부모 Board 컴포넌트에 state를 업데이트 하도록 요청함
+- Board의 state가 변경되면 Board 컴포넌트와 모든 자식 Square 컴포넌트가 자동으로 다시 렌더링
+- Board 컴포넌트에 속한 모든 Square의 state를 유지하면 나중에 승자를 결정할 수 있음
 
 ## 2025-04-10
 
