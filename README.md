@@ -1,5 +1,9 @@
 # 202030235 차민욱
 
+## 2025-04-17
+
+
+
 ## 2025-04-10
 
 ## props를 통해 데이터 전달하기
@@ -13,6 +17,38 @@
 ## 사용자와 상호작용하는 컴포넌트 만들기
 
 - 한글 문서에서 "사각형"이라고 번역된 것은 모두 Square 컴포넌트를 의미
+- 컴포넌트는 무언가 "기억"하기 위해 state를 사용
+- React는 상태 기억을 위해 useState라는 Hook을 제공
+
+  ```javascript
+    import { useState } from 'react';
+
+    function Square() {
+      const [value, setValue] = useState(null);
+
+      function handleClick() {
+        //...
+      }
+    }
+  ```
+
+- value는 값을 저장하는 '변수', setValue는 값을 변경하는 데 사용하는 '함수'
+
+## state 끌어올리기
+
+- 여러 자식 컴포넌트에서 데이터를 수집하거나 두 자식 컴포넌트가 서로 통신 하도록 하려면, 부모 컴포넌트에서 공유 state를 선언해야한다.
+- 부모 컴포넌트는 props를 통해 해당 state를 자식 컴포넌트에 전달할 수 있음.
+- React 컴포넌트를 리팩토링할 때 부모 컴포넌트로 state를 끌어올리는 것은 많이 사용되는 방법이다.
+
+## component 분리하기
+
+- 분리순서
+  - component 이름과 동일한 파일을 만든다.
+  - 해당 파일에 코드를 복사하고 export default 키워드를 추가한다.
+  - 필요한 component와 useState를 추가한다.
+  - App.js에서 해당 코드를 삭제하고, Board component를 import해준다.
+  - App.js에서 useState의 import를 제거한다.
+  - 정상적으로 동작하는지 확인한다.
 
 ## 2025-04-03
 
