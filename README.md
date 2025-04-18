@@ -22,9 +22,25 @@
 - 리액트에서 여러 속성을 렌더링하려면 리액트 속성 배열을 사용할 수 있음
 - 이미 state에 이동 history 배열이 있기 때문에 이것을 리액트 속성 배열로 변환해야 한다.
 - 자바스크립트에서 한 배열을 다른 배열로 변환하려면 배열 map 메서드를 사용하면 된다.
+
   ```javascript
   [1, 2, 3].map((x) => x * 2) // [2, 4, 6]
   ```
+## map함수의 사용
+
+- map의 기본 구문은 map(callbackFn)혹은 map(callbackFn, thisArg) 이다.
+
+  ```javascript
+  const moves = history.map((squares, move) => { })
+  ```
+
+- thisArg는 내부에서 this로 사용할 값을 지정하는데 화살표 함수에서는 생략된다.
+- history.map: history는 모든 플레이를 저장하는 배열입니다. 이 history에 map함수를 적용한다는 의미이다.
+- map함수는 history 각각의 요소 index를 순회하면서 squares를 추출한다.
+- 각 요소는 { } 안의 실행문을 싱핼하면서 버튼을 생성
+- 이렇게 생성된 버튼은 moves 객체에 다시 저장
+- move는 최종 렌더링에 사용됨
+
 
 ## 2025-04-17
 
