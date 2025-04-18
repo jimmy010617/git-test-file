@@ -26,6 +26,7 @@
   ```javascript
   [1, 2, 3].map((x) => x * 2) // [2, 4, 6]
   ```
+  
 ## map함수의 사용
 
 - map의 기본 구문은 map(callbackFn)혹은 map(callbackFn, thisArg) 이다.
