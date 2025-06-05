@@ -1,5 +1,100 @@
 # 202030235 차민욱
 
+## 2025-06-05
+
+## 기존 프로젝트에 리액트 추가 2
+
+[2단계: 페이지 어디에서든 React 컴포넌트 렌더링하기]
+- 기존에 존재하던 index.html의 원본 HTML 컨텐츠가 그대로 남아있는 것을 확인할 수 있다. 
+- 하지만 이제는 <nav id="navigation"> 안에 개발자가 직접 작성한 NavigationBar React 컴포넌트가 나타난다. 
+
+- 기존 프로젝트에서 React를 도입할 때, 일반적으로 작은 상호작용 컴포넌트(예시: 버튼)에서 시작하여
+점진적으로 “상위 구조로 확장하면서” 결국에는 전체 페이지가 React로 빌드될 때까지 이 과정을 반복하게 된다. 
+- 이 지점에 도달한다면 React의 장점을 최대한 활용하기 위해 React 프레임워크로 마이그레이션하는 것을 권장함.
+
+## 기존 네이티브 모바일 앱에서 React Native 사용하기
+
+- React Native 역시 기존 네이티브 앱에 점진적으로 통합할 수 있다.
+
+## 에디터 설정하기
+
+- VS Code는 현재 가장 많이 사용하는 에디터 중 하나이다. 
+- VS Code에 설치할 수 있는 확장(Extension)의 종류는 무수히 많으며, 깃허브(GitHub)와 같은 외부 서비스와의 연동도 지원한다. 
+- 아래에 나열한 기능들은 대부분 확장(Extension)으로 존재하기 때문에 VS Code의 설정을 다양한 방식으로 쉽게 변경할 수 있다.
+
+- 이 외에도 React 커뮤니티에서는 다음과 같은 에디터들을 자주 사용한다.
+
+  - WebStorm은 자바스크립트(JavaScript)에 특화되어 설계된 통합 개발 환경이다.
+  - Sublime Text는 JSX와 타입스크립트(TypeScript)를 지원하며 문법 강조 및 자동 완성 기능이 내장되어 있다.
+  - Vim은 모든 종류의 텍스트를 매우 효율적으로 생성하고 변경할 수 있도록 설계된 텍스트 편집기다. 대부분의 UNIX 시스템과 Apple OS X에 “vi”로 포함되어 있다.
+
+## 에디터 기능 추천
+
+- 린팅(Linting) : 코드 린터(Linter)는 코드를 작성하는 동안 실시간으로 문제를 찾아, 빠른 문제 해결을 돕는다. 자바스크립트를 위한 오픈 소스 린터(Linter)인 ESLint를 가장 많이 사용한다.
+
+- 포맷팅(Formatting) : Prettier를 사용하면 직접 지정해 놓은 규칙들에 부합하도록 코드의 형식을 깔끔하게 정리할 수 있다. Prettier를 실행하면 모든 탭은 공백으로 전환될 뿐만 아니라 들여쓰기, 따옴표 형식과 같은 요소들이 전부 설정에 부합하도록 수정된다.
+
+- 저장 시점에 포맷팅하기 
+  - 저장할 때마다 코드가 포맷팅 되는 것이 가장 이상적일 것이다. 이러한 설정은 VS Code에 자체적으로 내장되어 있다.
+
+## TypeScript 사용하기
+
+- TypeScript는 JavaScript 코드 베이스에 타입 정의를 추가하는 데 널리 사용되는 방법이다.
+- 기본적으로 TypeScript는 JSX를 지원하며, @types/react 및 @types/react-dom을 추가하면 완전한 React Web 지원을 받을 수 있다.
+
+## 기존 React 프로젝트에 TypeScript 추가하기
+
+  ```javascript
+  npm install @types/react @types/react-dom
+  ```
+- 다음 컴파일러 옵션을 tsconfig.json에 설정해야 한다.
+
+  - dom은 lib에 포함되어야 한다(주의: lib 옵션이 지정되지 않으면, 기본적으로 dom이 포함된다).
+  - jsx를 유효한 옵션 중 하나로 설정해야 한다.
+
+## React 컴포넌트가 있는 TypeScript
+
+- React와 함께 TypeScript를 작성하는 것은 React와 함께 JavaScript를 작성하는 것과 매우 유사하다. 
+- 컴포넌트로 작업할 때 가장 중요한 차이점은 컴포넌트의 props에 타입을 제공할 수 있다는 점이다. 
+- 이러한 타입은 에디터에서 정확성을 검사하고 인라인 문서를 제공하는 데 사용할 수 있다.
+
+## Hooks 예시
+
+- @types/react의 타입 정의에는 내장 Hooks에 대한 타입이 포함되어 있으므로 추가 설정 없이 컴포넌트에 사용할 수 있다. 
+- 컴포넌트에 작성한 코드를 고려하도록 만들어졌기 때문에 대부분의 경우 추론된 타입을 얻을 수 있으며, 이상적으로는 타입을 제공하는 사소한 작업을 처리할 필요가 없다.
+
+- 하지만, hooks에 타입을 제공하는 방법의 몇 가지 예시를 볼 수 있다.
+
+  - useState : useState hook은 초기 state로 전달된 값을 재사용하여 값의 타입을 결정한다.
+
+  - useReducer : useReducer Hook은 reducer 함수와 초기 state를 취하는 더 복잡한 Hook이다. reducer 함수의 타입은 초기 state에서 추론된다. state에 대한 타입을 제공하기 위해 useReducer 호출에 타입 인수를 선택적으로 제공할 수 있지만, 대신 초기 state에서 타입을 설정하는 것이 더 좋은 경우가 많다.
+
+  - useContext : useContext Hook은 컴포넌트를 통해 props를 전달할 필요 없이 컴포넌트 트리를 따라 데이터를 전달하는 기술이다. Provider 컴포넌트를 생성할 때 사용되며, 종종 자식 컴포넌트에서 값을 소비하는 Hook을 생성할 때 사용된다.
+
+  - useMemo : useMemo Hooks는 함수 호출로부터 memorized 된 값을 생성/재접근하여, 두 번째 매개변수로 전달된 종속성이 변경될 때만 함수를 다시 실행한다. Hook을 호출한 결과는 첫 번째 매개변수에 있는 함수의 반환 값에서 추론된다. Hook에 타입 인수를 제공하여 더욱더 명확하게 할 수 있다.
+
+  - useCallback : useCallback는 두 번째 매개변수로 전달되는 종속성이 같다면 함수에 대한 안정적인 참조를 제공한다. useMemo와 마찬가지로, 함수의 타입은 첫 번째 매개변수에 있는 함수의 반환 값에서 추론되며, Hook에 타입 인수를 제공하여 더욱더 명확하게 할 수 있다.
+
+- 몇 가지 주요 위치에서 TypeScript를 사용하고 있다.
+
+  - interface State는 reducer state의 모양을 설명한다.
+  - type CounterAction은 reducer에 dispatch 할 수 있는 다양한 액션을 설명한다.
+  - const initialState: State는 초기 state의 타입을 제공하고, 기본적으로 useReducer에서 사용하는 타입도 제공한다.
+  - stateReducer(state: State, action: CounterAction): State는 reducer 함수의 인수와 반환 값의 타입을 설정한다.
+
+## React 개발자 도구
+
+- 브라우저 확장 프로그램 : React로 빌드된 웹 사이트를 디버깅하는 가장 쉬운 방법은 React 개발자 도구 브라우저 확장 프로그램을 설치하는 것이다. 널리 사용되는 여러 브라우저에서 사용할 수 있다.
+- Safari 및 기타 브라우저 : 다른 브라우저(예: Safari)의 경우, react-devtools를 npm 패키지로 설치해야 한다.
+
+  ```javascript
+  # Yarn
+  yarn global add react-devtools
+
+  # npm
+  npm install -g react-devtools
+  ```
+
 ## 2025-05-29
 
 ## 처음부터 리액트 앱 만들기 2
