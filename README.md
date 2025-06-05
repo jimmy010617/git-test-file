@@ -98,9 +98,16 @@
 ## GitHub 연동하기
 
 - GitHub Page 저장소 : 깃허브에서 정적 호스팅을 하기 위해 필요한 저장소
-- 기본 저장소는 "https://<My Github ID>.github.io"로 외부에서 접속할 수 있다.
-- 일반 페이지 저장소는 "https://<My Github ID>.github.io/<repo-name>"으로 접속한다.
+- 기본 저장소는 "https://< My Github ID >.github.io"로 외부에서 접속할 수 있다.
+- 일반 페이지 저장소는 "https://< My Github ID >.github.io/< repo-name >"으로 접속한다.
 - 직접 구매한 도메인이 있다면 연결이 가능하다.
+
+## 배포할 프로젝트 저장소 생성
+
+- Working directory에 프로젝트를 새로 만들고, README.md를 간단히 수정한다.
+- 프로젝트를 깃허브로 푸시한다. 저장소는 public으로 한다.
+- 깃허브에서 프로젝트 저장소에서 Settings > Pages의 None을 클릭한다.
+- Select branch에서 main(master)을 선택하고, 저장한다.
 
 ## 2025-05-29
 
