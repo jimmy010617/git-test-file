@@ -95,6 +95,13 @@
   npm install -g react-devtools
   ```
 
+## GitHub 연동하기
+
+- GitHub Page 저장소 : 깃허브에서 정적 호스팅을 하기 위해 필요한 저장소
+- 기본 저장소는 "https://<My Github ID>.github.io"로 외부에서 접속할 수 있다.
+- 일반 페이지 저장소는 "https://<My Github ID>.github.io/<repo-name>"으로 접속한다.
+- 직접 구매한 도메인이 있다면 연결이 가능하다.
+
 ## 2025-05-29
 
 ## 처음부터 리액트 앱 만들기 2
